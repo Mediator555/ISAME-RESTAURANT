@@ -4,77 +4,357 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Isame Restaurant & Coffee Shop</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="description" content="Isame Restaurant & Coffee Shop – Kigali. Where taste meets art and coffee meets culture." />
   <style>
-    /* Additional CSS to fix navbar issues */
-    .nav-inner {
-      position: relative;
+    /* ============ Base Reset & Tokens ============ */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    :root{
+      --coffee-900:#3e2723;
+      --coffee-800:#4e342e;
+      --coffee-700:#6d4c41;
+      --coffee-600:#8d6e63;
+      --latte-50:#f5f1ec;
+      --latte-100:#efe6dc;
+      --caramel:#ffcc80;
+      --gold:#e7b778;
+      --text:#2c1a12;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+
+    /* ============ Navbar (Fixed) ============ */
+    .nav{
+      position: fixed; top:0; left:0; right:0; z-index: 1000;
+      background: var(--coffee-900);
+      color: var(--white);
+      box-shadow: 0 3px 12px rgba(0,0,0,.25);
+    }
+    .nav-inner{
+      max-width: 1200px; margin: 0 auto; padding: .8rem 1rem;
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
     }
     
+    /* Logo styling */
     .brand-logo {
-      height: 40px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: .08em;
-      color: var(--caramel);
-    }
-    
-    .logo-text {
-      font-size: 1.5rem;
     }
     
     .logo-icon {
-      height: 32px;
-      width: 32px;
-      background-color: var(--caramel);
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      background: var(--caramel);
+      color: var(--coffee-900);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      color: var(--coffee-900);
+      font-size: 24px;
+      font-weight: 800;
     }
     
-    @media (max-width: 860px) {
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+    .logo-text {
+      color: var(--caramel);
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .logo-subtext {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--white);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    
+    .nav-links{ 
+      list-style:none; 
+      display:flex; 
+      gap: 1.5rem; 
+      margin:0; 
+      padding:0; 
+      align-items: center;
+    }
+    
+    .nav-links a{ 
+      color:#ffe0b2; 
+      text-decoration:none; 
+      font-weight:600;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover{ 
+      color:var(--caramel); 
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--caramel);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile menu button */
+    .nav-toggle{ 
+      display:none; 
+      font-size:1.5rem; 
+      background:none; 
+      border:0; 
+      color:#ffe0b2; 
+      cursor:pointer; 
+      padding: 0.5rem;
+    }
+
+    @media (max-width: 860px){
+      .nav-toggle{ 
+        display:block; 
+        order: 2;
+      }
+      
+      .brand-logo {
+        order: 1;
+      }
+      
+      .nav-links{
+        position:absolute; 
+        top:100%; 
+        right:0; 
+        left:0;
         background: var(--coffee-900);
-        flex-direction: column;
-        padding: 1rem;
+        flex-direction:column; 
+        padding: 1.5rem; 
+        display:none;
+        border-top:1px solid rgba(255,255,255,.08);
+        gap: 1.2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+      
+      .nav-links.open{ 
+        display:flex; 
+      }
+      
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.8rem 0;
+      }
+      
+      .nav-links a::after {
         display: none;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
       }
-      
-      .nav-links.open {
-        display: flex;
-      }
-      
-      .nav-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--white);
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
+    }
+
+    /* HERO SECTION PADDING */
+    @media (max-width: 860px) {
+      #hero { padding-top: 0; } /* remove extra space */
+      .nav-links { top: 72px; } /* position dropdown below navbar */
     }
     
-    @media (min-width: 861px) {
-      .nav-toggle {
-        display: none;
-      }
-      
-      .nav-links {
-        display: flex !important;
-      }
+    /* HERO SECTION SCROLL */
+    #hero, .section { scroll-margin-top: 72px; }
+    .hero { padding-top: 72px; }
+
+    /* Avoid content under fixed nav */
+    #hero, .section { scroll-margin-top: 72px; }
+    body { 
+      color: var(--text); 
+      background: linear-gradient(180deg, var(--latte-50), #fffaf5);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
     }
+
+    /* ============ Hero (Tall + Parallax-feel) ============ */
+    .hero{
+      position: relative;
+      min-height: 100vh;
+      display:grid; place-items:center;
+      overflow:hidden;
+      padding-top:72px; /* space for fixed nav */
+    }
+    .hero-slide{
+      position:absolute; inset:0;
+      background-image: var(--bg);
+      background-size: cover; background-position: center;
+      background-attachment: fixed; /* parallax-like */
+      opacity: 0; transition: opacity 1s ease-in-out;
+    }
+    .hero-slide:first-child{ opacity:1; }
+    .hero-slide.active{ opacity:1; }
+    .hero-overlay{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
+    }
+    .hero-content{
+      position:relative; z-index:1; text-align:center; color:var(--white);
+      max-width: 900px; padding: 1rem;
+    }
+    .hero h1{ 
+      font-size: clamp(2rem, 4vw, 3.2rem); 
+      margin: 0 0 .6rem; 
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero p{ 
+      font-size: clamp(1rem, 2.2vw, 1.25rem); 
+      opacity:.95; 
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero-ctas{ 
+      margin-top: 2rem; 
+      display:flex; 
+      flex-wrap:wrap; 
+      gap:.8rem; 
+      justify-content:center; 
+    }
+    .hours{ 
+      margin-top:1.5rem; 
+      opacity:.95; 
+      background: rgba(0,0,0,0.3);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      background: var(--coffee-700); color: var(--white);
+      padding: .75rem 1.1rem; border-radius: 999px; text-decoration:none; font-weight:700;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: var(--shadow);
+    }
+    .btn:hover{ background: var(--coffee-800); transform: translateY(-1px); }
+    .btn-ghost{ background: rgba(255,255,255,0.1); border:2px solid var(--gold); color: var(--white); }
+    .btn-ghost:hover{ background: rgba(255,255,255,.15); }
+    .btn-wa{ background:#25D366; color:#fff; }
+    .btn-wa:hover{ background:#1ebe5b; }
+    .icon{ width: 1.1em; height: 1.1em; display:inline-block; }
+
+    /* ============ Sections ============ */
+    .section{ padding: 64px 16px; }
+    .section-alt{ background: var(--latte-100); }
+    .container{ max-width: 1200px; margin: 0 auto; }
+    .section-lead{ text-align:center; max-width:800px; margin: .3rem auto 1.6rem; opacity:.9; }
+
+    /* Layout helpers */
+    .two-col{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items:center; }
+    @media (max-width: 860px){ .two-col{ grid-template-columns: 1fr; } }
+
+    /* About */
+    .about .about-figure{
+      border-radius: 16px; overflow:hidden; box-shadow: var(--shadow);
+    }
+    .about .about-figure img{ width:100%; height:auto; display:block; }
+
+    /* Cards (deep coffee) */
+    .grid{ display:grid; gap: 20px; }
+    .cards{ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card{
+      background: linear-gradient(145deg, var(--coffee-800), var(--coffee-900));
+      color: #fff; border-radius: 16px; overflow:hidden; box-shadow: var(--shadow);
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+    .card img{ width:100%; height:190px; object-fit:cover; display:block; }
+    .card-body{ padding: 16px 16px 18px; }
+    .card h3{ margin: 0 0 .35rem; color: var(--caramel); }
+    .card p{ margin: 0 0 .8rem; opacity:.95; }
+    .card-actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+
+    /* Plain cards variant */
+    .cards-plain .card,
+    .card-plain{
+      background: #efebe9; color: var(--text);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .cards-plain .card h3,
+    .card-plain h3{ color: var(--coffee-800); }
+
+    /* Center helpers */
+    .center{ text-align:center; }
+    .stack-cta{ margin-top: 16px; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+
+    /* Gallery grid */
+    .gallery{
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .gallery img{
+      border-radius: 12px; cursor: zoom-in; box-shadow: 0 6px 16px rgba(0,0,0,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .gallery img:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.25); }
+
+    /* Lightbox */
+    .lightbox{
+      position: fixed; inset:0; background: rgba(0,0,0,.8);
+      display: none; align-items:center; justify-content:center; z-index: 1100;
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox-image{ max-width: 92vw; max-height: 82vh; border-radius: 12px; box-shadow: var(--shadow); }
+    .lightbox-close{
+      position: absolute; top: 18px; right: 18px; background: rgba(255,255,255,.12);
+      color:#fff; border:0; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:22px;
+    }
+
+    /* FAQ */
+    .faq details{
+      background:#efebe9; margin: 10px auto; max-width: 800px; padding: 12px 16px;
+      border-radius: 12px; border-left: 6px solid var(--coffee-700);
+    }
+    .faq summary{ font-weight: 700; cursor: pointer; color: var(--coffee-800); }
+
+    /* Contact */
+    .contact-grid{ gap: 24px; }
+    .map-wrapper{
+      width:100%; height:340px; border-radius: 16px; overflow:hidden; box-shadow: var(--shadow);
+    }
+
+    /* ============ Footer (unchanged style/size) ============ */
+    footer{
+      background: var(--coffee-900); color:#d8c7b1; padding: 48px 16px;
+    }
+    .footer-grid{
+      max-width:1200px; margin:0 auto 18px; display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;
+    }
+    footer h4{ color:#ffcc80; margin: 0 0 10px; }
+    footer ul{ list-style:none; margin:0; padding:0; }
+    footer li{ margin:6px 0; }
+    footer a{ color:#ffe0b2; text-decoration:none; }
+    footer a:hover{ color:#ffcc80; }
+    .footer-bottom{
+      max-width:1200px; margin:0 auto; text-align:center; border-top:1px solid #6d4c41; padding-top:12px;
+    }
+    .signature{ font-style: italic; font-size:.9rem; color:#ffcc80; }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: inline-block;
+    }
+    .whatsapp-float svg { width: 50px; height: 50px; }
+
+    /* ============ Nice micro-interactions ============ */
+    .card:hover{ transform: translateY(-3px); }
   </style>
 </head>
 <body>
@@ -91,9 +371,11 @@
   <div class="nav-inner">
     <a href="#hero" class="brand-logo">
       <span class="logo-icon">I</span>
-      <span class="logo-text">ISAME</span>
+      <span class="logo-text">ISAME <span class="logo-subtext">RESTAURANT</span></span>
     </a>
+    
     <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#menu">Menu</a></li>
@@ -117,7 +399,7 @@
     <p>Where every cup tells a story — coffee, cuisine & comfort in Kigali.</p>
     <div class="hero-ctas">
       <a href="#menu" class="btn">View Menu</a>
-      <a href="MENU.PDF" class="btn btn-ghost" target="_blank" rel="noopener">View Full Menu (PDF)</a>
+      <a href="#" class="btn btn-ghost">View Full Menu (PDF)</a>
       <a class="btn btn-wa" href="https://wa.me/250788967143?text=Hello%20Isame!%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">
         <svg class="icon"><use href="#icon-wa"/></svg> Reserve via WhatsApp
       </a>
@@ -203,18 +485,20 @@
     
     <div class="center stack-cta">
       <a class="btn" href="#reservations">Reserve a Table</a>
-      <a class="btn btn-ghost" href="MENU.PDF" target="_blank" rel="noopener">View Full Menu</a>
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">View Full Menu</a>
     </div>
   </div>
 </section>
-<!-- Simple QR image using Google Chart API -->
-<img
-  src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://isamerestaurantkigali.netlify.app/MENU.PDF"
-  alt="ISAME Restaurant Menu QR"
-  width="300"
-  height="300"
-/>
 
+<!-- Simple QR image using Google Chart API -->
+<div class="container center" style="margin-top: 2rem;">
+  <img
+    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://isamerestaurantkigali.netlify.app/MENU.PDF"
+    alt="ISAME Restaurant Menu QR"
+    width="300"
+    height="300"
+  />
+</div>
 
 <!-- GALLERY (with Lightbox) -->
 <section id="gallery" class="section section-alt">
@@ -350,7 +634,7 @@
           <a class="btn btn-wa" href="https://wa.me/250788967143?text=Hello%20Isame!" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-wa"/></svg> Chat on WhatsApp
           </a>
-          <a class="btn btn-ghost" href="MENU.PDF" target="_blank" rel="noopener">View Full Menu (PDF)</a>
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">View Full Menu (PDF)</a>
         </div>
       </div>
       <div class="col">
@@ -408,7 +692,7 @@
 
 <a href="https://wa.me/250788967143" class="whatsapp-float" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#25D366">
-    <path d="M16.003 3.2C9.607 3.2 4.4 8.407 4.4 14.803c0 2.61.748 5.027 2.037 7.08L3 29l7.18-3.428a11.64 11.64 0 0 0 5.823 1.497h.003c6.395 0 11.603-5.208 11.603-11.604S22.398 3.2 16.003 3.2zm0 21.4c-1.886 0-3.733-.508-5.333-1.468l-.383-.228-4.27 2.037 1.05-4.418-.249-.383a10.26 10.26 0 0 1-1.554-5.68c0-5.654 4.594-10.25 10.25-10.25s10.25 4.596 10.25 10.25-4.594 10.25-10.25 10.25zm5.588-7.676c-.307-.154-1.818-.899-2.1-.999-.281-.1-.487-.154-.693.154-.204.307-.793.999-.973 1.203-.179.204-.358.23-.666.077-.307-.154-1.296-.479-2.47-1.525-.913-.813-1.528-1.814-1.707-2.12-.179-.307-.019-.473.135-.627.139-.138.307-.358.461-.537.154-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.154-.693-1.667-.949-2.281-.25-.597-.507-.517-.693-.527l-.593-.01c-.204 0-.537.077-.82.384s-1.077 1.052-1.077 2.562c0 1.51 1.103 2.97 1.257 3.175.154.204 2.17 3.312 5.26 4.646.736.317 1.308.507 1.752.647.736.23 1.407.198 1.936.120.591-.085 1.818-.744 2.077-1.462.256-.717.256-1.332.179-1.462-.077-.128-.28-.204-.587-.358z"/>
+    <path d="M16.003 3.2C9.607 3.2 4.4 8.407 4.4 14.803c0 2.61.748 5.027 2.037 7.08L3 29l7.18-3.428a11.64 11.64 0 0 0 5.823 1.497h.003c6.395 0 11.603-5.208 11.603-11.604S22.398 3.2 16.003 3.2zm0 21.4c-1.886 0-3.733-.508-5.333-1.468l-.383-.228-4.27 2.037 1.05-4.418-.249-.383a10.26 10.26 0 0 1-1.554-5.680c0-5.654 4.594-10.25 10.25-10.25s10.25 4.596 10.25 10.25-4.594 10.25-10.25 10.25zm5.588-7.676c-.307-.154-1.818-.899-2.1-.999-.281-.1-.487-.154-.693.154-.204.307-.793.999-.973 1.203-.179.204-.358.23-.666.077-.307-.154-1.296-.479-2.47-1.525-.913-.813-1.528-1.814-1.707-2.12-.179-.307-.019-.473.135-.627.139-.138.307-.358.461-.537.154-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.154-.693-1.667-.949-2.281-.25-.597-.507-.517-.693-.527l-.593-.01c-.204 0-.537.077-.82.384s-1.077 1.052-1.077 2.562c0 1.51 1.103 2.97 1.257 3.175.154.204 2.17 3.312 5.26 4.646.736.317 1.308.507 1.752.647.736.23 1.407.198 1.936.120.591-.085 1.818-.744 2.077-1.462.256-.717.256-1.332.179-1.462-.077-.128-.28-.204-.587-.358z"/>
   </svg>
 </a>
 

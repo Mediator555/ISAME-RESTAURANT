@@ -3,10 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Isame Restaurant & Coffee Shop</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="description" content="Isame Restaurant & Coffee Shop – Kigali. Where taste meets art and coffee meets culture." />
+  <style>
+    /* Additional CSS to fix navbar issues */
+    .nav-inner {
+      position: relative;
+    }
+    
+    .brand-logo {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--caramel);
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+    }
+    
+    .logo-icon {
+      height: 32px;
+      width: 32px;
+      background-color: var(--caramel);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--coffee-900);
+    }
+    
+    @media (max-width: 860px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--coffee-900);
+        flex-direction: column;
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      
+      .nav-links.open {
+        display: flex;
+      }
+      
+      .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+    
+    @media (min-width: 861px) {
+      .nav-toggle {
+        display: none;
+      }
+      
+      .nav-links {
+        display: flex !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,8 +89,11 @@
 <!-- Fixed Navbar -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#hero" class="brand">ISAME</a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <a href="#hero" class="brand-logo">
+      <span class="logo-icon">I</span>
+      <span class="logo-text">ISAME</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#menu">Menu</a></li>
@@ -63,7 +135,7 @@
     <div class="col">
       <h2>About Us</h2>
       <p>At Isame, we blend coffee, food and culture into an artistic experience. From signature brews to chef-crafted meals, every detail is designed with love.</p>
-      <p>Located in Kigali, we’re your green, cozy spot to relax, meet friends, or host small events.</p>
+      <p>Located in Kigali, we're your green, cozy spot to relax, meet friends, or host small events.</p>
     </div>
     <div class="col">
       <figure class="about-figure">
@@ -217,7 +289,7 @@
     <h2>Frequently Asked Questions</h2>
     <details>
       <summary>Do you offer delivery?</summary>
-      <p>Yes — order via WhatsApp and we’ll deliver. For pre-orders, half payment is required.</p>
+      <p>Yes — order via WhatsApp and we'll deliver. For pre-orders, half payment is required.</p>
     </details>
     <details>
       <summary>Do you host private events?</summary>
@@ -336,7 +408,7 @@
 
 <a href="https://wa.me/250788967143" class="whatsapp-float" target="_blank">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#25D366">
-    <path d="M16.003 3.2C9.607 3.2 4.4 8.407 4.4 14.803c0 2.61.748 5.027 2.037 7.08L3 29l7.18-3.428a11.64 11.64 0 0 0 5.823 1.497h.003c6.395 0 11.603-5.208 11.603-11.604S22.398 3.2 16.003 3.2zm0 21.4c-1.886 0-3.733-.508-5.333-1.468l-.383-.228-4.27 2.037 1.05-4.418-.249-.383a10.26 10.26 0 0 1-1.554-5.68c0-5.654 4.594-10.25 10.25-10.25s10.25 4.596 10.25 10.25-4.594 10.25-10.25 10.25zm5.588-7.676c-.307-.154-1.818-.899-2.1-.999-.281-.1-.487-.154-.693.154-.204.307-.793.999-.973 1.203-.179.204-.358.23-.666.077-.307-.154-1.296-.479-2.47-1.525-.913-.813-1.528-1.814-1.707-2.12-.179-.307-.019-.473.135-.627.139-.138.307-.358.461-.537.154-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.154-.693-1.667-.949-2.281-.25-.597-.507-.517-.693-.527l-.593-.01c-.204 0-.537.077-.82.384s-1.077 1.052-1.077 2.562c0 1.51 1.103 2.97 1.257 3.175.154.204 2.17 3.312 5.26 4.646.736.317 1.308.507 1.752.647.736.23 1.407.198 1.936.12.591-.085 1.818-.744 2.077-1.462.256-.717.256-1.332.179-1.462-.077-.128-.28-.204-.587-.358z"/>
+    <path d="M16.003 3.2C9.607 3.2 4.4 8.407 4.4 14.803c0 2.61.748 5.027 2.037 7.08L3 29l7.18-3.428a11.64 11.64 0 0 0 5.823 1.497h.003c6.395 0 11.603-5.208 11.603-11.604S22.398 3.2 16.003 3.2zm0 21.4c-1.886 0-3.733-.508-5.333-1.468l-.383-.228-4.27 2.037 1.05-4.418-.249-.383a10.26 10.26 0 0 1-1.554-5.68c0-5.654 4.594-10.25 10.25-10.25s10.25 4.596 10.25 10.25-4.594 10.25-10.25 10.25zm5.588-7.676c-.307-.154-1.818-.899-2.1-.999-.281-.1-.487-.154-.693.154-.204.307-.793.999-.973 1.203-.179.204-.358.23-.666.077-.307-.154-1.296-.479-2.47-1.525-.913-.813-1.528-1.814-1.707-2.12-.179-.307-.019-.473.135-.627.139-.138.307-.358.461-.537.154-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.154-.693-1.667-.949-2.281-.25-.597-.507-.517-.693-.527l-.593-.01c-.204 0-.537.077-.82.384s-1.077 1.052-1.077 2.562c0 1.51 1.103 2.97 1.257 3.175.154.204 2.17 3.312 5.26 4.646.736.317 1.308.507 1.752.647.736.23 1.407.198 1.936.120.591-.085 1.818-.744 2.077-1.462.256-.717.256-1.332.179-1.462-.077-.128-.28-.204-.587-.358z"/>
   </svg>
 </a>
 
@@ -347,7 +419,15 @@
   const links = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Close menu when clicking on a link (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
   });
 
   // Hero crossfade slider
@@ -358,6 +438,7 @@
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
   }, 6000);
+  
   // Gallery lightbox
   const lb = document.getElementById('lightbox');
   const lbImg = lb.querySelector('.lightbox-image');
@@ -381,13 +462,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

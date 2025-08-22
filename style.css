@@ -45,6 +45,15 @@ html { scroll-behavior: smooth; }
   }
   .nav-links.open{ display:flex; }
 }
+/* HERO SECTION PADDING */
+@media (max-width: 860px) {
+  #hero { padding-top: 0; } /* remove extra space */
+  .nav-links { top: 72px; } /* position dropdown below navbar */
+}
+/* HERO SECTION SCROLL */
+#hero, .section { scroll-margin-top: 72px; }
+.hero { padding-top: 72px; }
+
 
 /* Avoid content under fixed nav */
 #hero, .section { scroll-margin-top: 72px; }
@@ -204,3 +213,4 @@ footer a:hover{ color:#ffcc80; }
 
 /* ============ Nice micro-interactions ============ */
 .card:hover{ transform: translateY(-3px); }
+

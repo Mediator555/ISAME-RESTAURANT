@@ -223,3 +223,56 @@ nav ul li a {
   text-decoration: none;
 }
 
+/* ============ FIX HORIZONTAL SCROLLING ISSUE ============ */
+.nav {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 100%;
+}
+
+.nav-links {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .nav-inner {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .brand-logo {
+    max-width: 70%;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  
+  .logo-subtext {
+    font-size: 0.6rem;
+  }
+  
+  .nav-toggle {
+    padding: 0.3rem;
+    margin-right: 0.5rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Prevent horizontal scrolling on entire site */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}

@@ -1,114 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ISAME Restaurant Kigali</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isame Restaurant & Coffee Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Isame Restaurant & Coffee Shop – Kigali. Where taste meets art and coffee meets culture." />
 </head>
 <body>
 
+<!-- Reusable SVG icons (WhatsApp) -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-wa" viewBox="0 0 448 512">
+    <path fill="currentColor" d="M380.9 97.1C339-21.6 207.1-61.9 97.1 21.1 6.6 83.5-20.6 203 41.7 293.5l-27.2 100.2 102.5-26.9c85.6 45.9 192.2 16.6 248.6-62.9 58-82.8 34.8-202.9-34.7-206.8zM224 400c-32.9 0-65.1-8.7-93.4-25.2l-6.6-4-60.8 15.9 16.2-59.9-3.9-6.2c-18.4-29.5-28.1-63.6-28.1-98.6 0-101.5 82.5-184 184-184 49.1 0 95.2 19.1 129.8 53.7C435.1 240.7 325.2 400 224 400z"/>
+  </symbol>
+</svg>
+
 <!-- Fixed Navbar -->
-<nav class="navbar">
-  <div class="container">
-    <a href="#home" class="logo">ISAME Restaurant</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">ISAME</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
+      <li><a href="#hero">Home</a></li>
       <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#reservations">Reservations</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Contacts</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
+<!-- HERO (Parallax & Tall) -->
+<header id="hero" class="hero">
+  <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop');"></div>
+  <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop');"></div>
+  <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop');"></div>
+
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Welcome to ISAME Restaurant</h1>
-    <p>Where every cup tells a story</p>
-    <a class="btn" href="#menu">Explore Menu</a>
+    <h1>Welcome to Isame</h1>
+    <p>Where every cup tells a story — coffee, cuisine & comfort in Kigali.</p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn">View Menu</a>
+      <a href="assets/menu.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download Full Menu (PDF)</a>
+      <a class="btn btn-wa" href="https://wa.me/250788967143?text=Hello%20Isame!%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener">
+        <svg class="icon"><use href="#icon-wa"/></svg> Reserve via WhatsApp
+      </a>
+    </div>
+    <div class="hours">
+      <strong>Hours:</strong>
+      Breakfast 06:00–1:30 • Lunch 11:00–15:00 • Dinner 18:00–24:00
+    </div>
   </div>
-</section>
+</header>
 
-<!-- Menu Section -->
-<section id="menu" class="menu-section">
-  <h2>Our Menu</h2>
-  <p>Discover delicious meals and drinks.</p>
-  
-  <div class="center stack-cta">
-    <a class="btn btn-ghost" href="MENU.PDF" target="_blank" rel="noopener">
-      Download Full Menu (PDF)
-    </a>
-  </div>
-
-  <!-- QR Code Section -->
-  <div class="qr-section">
-    <div class="qr-card">
-      <h3>📱 Scan to View Menu</h3>
-      <img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=https://isamerestaurantkigali.netlify.app/MENU.PDF" 
-           alt="QR Code - View Menu" />
-      <p>Scan this code to open our full menu instantly on your phone.</p>
+<!-- ABOUT (with image) -->
+<section id="about" class="section section-alt about">
+  <div class="container two-col">
+    <div class="col">
+      <h2>About Us</h2>
+      <p>At Isame, we blend coffee, food and culture into an artistic experience. From signature brews to chef-crafted meals, every detail is designed with love.</p>
+      <p>Located in Kigali, we’re your green, cozy spot to relax, meet friends, or host small events.</p>
+    </div>
+    <div class="col">
+      <figure class="about-figure">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Isame dishes and coffee" />
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- Reservations Section -->
-<section id="reservations" class="reservations">
-  <h2>Reserve a Table</h2>
-  <p>You can make a reservation for your food or drinks. Choose your menu items and contact us via WhatsApp to confirm.</p>
-  <a class="btn" href="https://wa.me/250788967143" target="_blank">Reserve via WhatsApp</a>
+<!-- MENU (Order via WhatsApp) -->
+<section id="menu" class="section">
+  <div class="container">
+    <h2>Our Menu</h2>
+    <p class="section-lead">Discover the art of brewing and taste our favorites. Order instantly via WhatsApp.</p>
+    <div class="grid cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=800&auto=format&fit=crop" alt="Espresso" />
+        <div class="card-body">
+          <h3>Espresso</h3>
+          <p>Rich, bold shot pulled to perfection.</p>
+          <div class="card-actions">
+            <a class="btn btn-wa" href="https://wa.me/250788967143?text=Order:%20Espresso%20x1" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-wa"/></svg> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Cappuccino" />
+        <div class="card-body">
+          <h3>Cappuccino</h3>
+          <p>Creamy foam with deep coffee richness.</p>
+          <div class="card-actions">
+            <a class="btn btn-wa" href="https://wa.me/250788967143?text=Order:%20Cappuccino%20x1" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-wa"/></svg> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Signature Burger" />
+        <div class="card-body">
+          <h3>Signature Burger</h3>
+          <p>Juicy, flavorful and unforgettable.</p>
+          <div class="card-actions">
+            <a class="btn btn-wa" href="https://wa.me/250788967143?text=Order:%20Signature%20Burger%20x1" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-wa"/></svg> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" alt="Vegan Salad" />
+        <div class="card-body">
+          <h3>Vegan Salad</h3>
+          <p>Fresh greens, avocado and classic dressing.</p>
+          <div class="card-actions">
+            <a class="btn btn-wa" href="https://wa.me/250788967143?text=Order:%20Vegan%20Salad%20x1" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-wa"/></svg> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="center stack-cta">
+      <a class="btn" href="#reservations">Reserve a Table</a>
+      <a class="btn btn-ghost" href="CS8251-PROGRAMMING-IN-C-Question-Bank.pdf" target="_blank" rel="noopener">View Full Menu</a>
+    </div>
+  </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <p>Kigali, Nyarugenge, City Center, RUBANGURA House 2nd Floor Door 206</p>
-  <p>📞 +250788967143 | 📞 +250727970966</p>
-  <p>📧 info@isamerestaurant.com</p>
-  <iframe src="https://maps.google.com/maps?q=Isame%20Restaurant%20Kigali&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<!-- GALLERY (with Lightbox) -->
+<section id="gallery" class="section section-alt">
+  <div class="container">
+    <h2>Gallery</h2>
+    <p class="section-lead">A glimpse of our space, dishes and coffee craft.</p>
+    <div class="grid gallery">
+      <!-- Use any images; these are placeholders -->
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=700&auto=format&fit=crop" alt="Dish" />
+      <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=700&auto=format&fit=crop" alt="Interior" />
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=700&auto=format&fit=crop" alt="Table" />
+      <img src="https://images.unsplash.com/photo-1511910849309-0dffb70f0ed9?q=80&w=700&auto=format&fit=crop" alt="Latte art" />
+      <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=700&auto=format&fit=crop" alt="Dessert" />
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=700&auto=format&fit=crop" alt="Ambience" />
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <img class="lightbox-image" alt="Preview" />
+  </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-quick-links">
+<!-- EVENTS -->
+<section id="events" class="section">
+  <div class="container">
+    <h2>Events & Promotions</h2>
+    <div class="grid cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=800&auto=format&fit=crop" alt="Live Jazz" />
+        <div class="card-body">
+          <h3>Live Jazz Night</h3>
+          <p>Every Friday at 7PM — enjoy music with curated drinks.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1498654200943-1088dd4438ae?q=80&w=800&auto=format&fit=crop" alt="Sunday Brunch" />
+        <div class="card-body">
+          <h3>Sunday Brunch</h3>
+          <p>Buffet vibes with friends and family — from 10AM.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / NEWS -->
+<section id="blog" class="section section-alt">
+  <div class="container">
+    <h2>News & Blog</h2>
+    <div class="grid cards cards-plain">
+      <article class="card card-plain">
+        <div class="card-body">
+          <h3>Discover perfect espresso</h3>
+          <p>The foundation of great espresso is quality beans and precise extraction.</p>
+        </div>
+      </article>
+      <article class="card card-plain">
+        <div class="card-body">
+          <h3>Top 5 desserts this month</h3>
+          <p>Tropical tart, mango sticky rice (Rwandan twist), maracuja panna cotta, banana flambé, and classic vanilla.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>Do you offer delivery?</summary>
+      <p>Yes — order via WhatsApp and we’ll deliver. For pre-orders, half payment is required.</p>
+    </details>
+    <details>
+      <summary>Do you host private events?</summary>
+      <p>Yes — contact us for corporate dinners or private parties.</p>
+    </details>
+  </div>
+</section>
+
+<!-- RESERVATIONS -->
+<section id="reservations" class="section section-alt">
+  <div class="container">
+    <h2>Reservations / Orders</h2>
+    <p class="section-lead">Reserve food or drinks in advance. Please specify your order from the current menu. <strong>Rule:</strong> Pre-orders require paying half of the total.</p>
+    <div class="center">
+      <a class="btn btn-wa" href="https://wa.me/250788967143?text=Reservation:%20Name%2C%20Date%2FTime%2C%20Number%20of%20People%2C%20Order%20Details" target="_blank" rel="noopener">
+        <svg class="icon"><use href="#icon-wa"/></svg> Start Reservation on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POLICIES (linked from footer) -->
+<section id="policies" class="section">
+  <div class="container">
+    <h2>Policies</h2>
+    <div class="grid cards cards-plain">
+      <article class="card card-plain">
+        <div class="card-body">
+          <h3>Terms &amp; Conditions</h3>
+          <p>Usage of our website and services is subject to standard hospitality terms.</p>
+        </div>
+      </article>
+      <article class="card card-plain">
+        <div class="card-body">
+          <h3>Privacy Policy</h3>
+          <p>We respect your privacy. Contact details are used only to fulfill your requests.</p>
+        </div>
+      </article>
+      <article class="card card-plain">
+        <div class="card-body">
+          <h3>Refund Policy</h3>
+          <p>Refunds for reservations apply if cancellation occurs 24 hours before the scheduled time.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (Map working) -->
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="two-col contact-grid">
+      <div class="col">
+        <p><strong>Location:</strong> Kigali, Rwanda</p>
+        <p><strong>Phone/WhatsApp:</strong> <a href="https://wa.me/250788967143" target="_blank" rel="noopener">+250 788 967 143</a></p>
+        <div class="stack-cta">
+          <a class="btn btn-wa" href="https://wa.me/250788967143?text=Hello%20Isame!" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-wa"/></svg> Chat on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="assets/menu.pdf" target="_blank" rel="noopener">Download Menu (PDF)</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="map-wrapper">
+          <iframe
+            title="Isame Restaurant & Coffee Shop Map"
+            width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Isame%20Restaurant%20And%20Coffee%20Shop%20Kigali&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (unchanged style/size) -->
+<footer>
+  <div class="footer-grid">
     <div>
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="#">Events / Promotions</a></li>
-        <li><a href="#">Blog / News</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Terms & Conditions</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#events">Events / Promotions</a></li>
+        <li><a href="#blog">Blog / News</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#policies">Terms &amp; Conditions</a></li>
+        <li><a href="#policies">Privacy Policy</a></li>
+        <li><a href="#policies">Refund Policy</a></li>
       </ul>
     </div>
     <div>
       <h4>Navigate</h4>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#reservations">Reservations</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Contacts</a></li>
       </ul>
     </div>
     <div>
-      <h4>Follow Us</h4>
+      <h4>Social Media</h4>
       <ul>
-        <li><a href="https://www.instagram.com/isamerestau/">Instagram</a></li>
-        <li><a href="https://evendo.com/locations/rwanda/karisimbi-volcano/restaurant/isame-restaurant-and-coffee-shop" target="_blank">External Link</a></li>
+        <li><a href="https://www.instagram.com/isamerestau/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://evendo.com/locations/rwanda/karisimbi-volcano/restaurant/isame-restaurant-and-coffee-shop" target="_blank" rel="noopener">External Link</a></li>
       </ul>
     </div>
   </div>
-  <p class="developer">Developed by <span>TAFF CARP Rwanda</span></p>
+  <div class="footer-bottom">
+    © 2025 Isame Restaurant & Coffee Shop |
+    <span class="signature">Developed by TAFF CARP Rwanda</span>
+  </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/250788967143" class="whatsapp-float" target="_blank">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#25D366">
-    <path d="M16.003 3.2C9.607 3.2 4.4 8.407 4.4 14.803c0 2.61.748 5.027 2.037 7.08L3 29l7.18-3.428a11.64 11.64 0 0 0 5.823 1.497h.003c6.395 0 11.603-5.208 11.603-11.604S22.398 3.2 16.003 3.2zm0 21.4c-1.886 0-3.733-.508-5.333-1.468l-.383-.228-4.27 2.037 1.05-4.418-.249-.383a10.26 10.26 0 0 1-1.554-5.68c0-5.654 4.594-10.25 10.25-10.25s10.25 4.596 10.25 10.25-4.594 10.25-10.25 10.25zm5.588-7.676c-.307-.154-1.818-.899-2.1-.999-.281-.1-.487-.154-.693.154-.204.307-.793.999-.973 1.203-.179.204-.358.23-.666.077-.307-.154-1.296-.479-2.47-1.525-.913-.813-1.528-1.814-1.707-2.12-.179-.307-.019-.473.135-.627.139-.138.307-.358.461-.537.154-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.154-.693-1.667-.949-2.281-.25-.597-.507-.517-.693-.527l-.593-.01c-.204 0-.537.077-.82.384s-1.077 1.052-1.077 2.562c0 1.51 1.103 2.97 1.257 3.175.154.204 2.17 3.312 5.26 4.646.736.317 1.308.507 1.752.647.736.23 1.407.198 1.936.12.591-.085 1.818-.744 2.077-1.462.256-.717.256-1.332.179-1.462-.077-.128-.28-.204-.587-.358z"/>
-  </svg>
+<!-- Floating WhatsApp Button (Official SVG) -->
+<a href="https://wa.me/250788967143" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg class="icon-lg" viewBox="0 0 448 512"><use href="#icon-wa"/></svg>
 </a>
+
+<!-- Scripts: nav toggle, hero slider, gallery lightbox -->
+<script>
+  // Mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Hero crossfade slider
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 6000);
+
+  // Gallery lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('.lightbox-image');
+  const lbClose = lb.querySelector('.lightbox-close');
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lb.setAttribute('aria-hidden', 'false');
+      lb.classList.add('open');
+    });
+  });
+  lbClose.addEventListener('click', () => {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    lbImg.src = '';
+  });
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) lbClose.click();
+  });
+</script>
 
 </body>
 </html>

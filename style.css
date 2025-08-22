@@ -200,17 +200,17 @@ footer a:hover{ color:#ffcc80; }
 }
 .signature{ font-style: italic; font-size:.9rem; color:#ffcc80; }
 
-/* ============ Floating WhatsApp (Official SVG) ============ */
-.whatsapp-float{
-  position: fixed; bottom: 20px; right: 20px; z-index: 1200;
-  width: 60px; height: 60px; border-radius: 50%;
-  background:#25D366; display:grid; place-items:center;
-  color:#fff; box-shadow: 0 6px 14px rgba(0,0,0,.25); text-decoration:none;
-  transition: transform .2s ease, background .2s ease;
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: inline-block;
 }
-.whatsapp-float:hover{ transform: scale(1.06); background:#1ebe5b; }
-.icon-lg{ width:28px; height:28px; fill:#fff; }
+.whatsapp-float svg { width: 50px; height: 50px; }
 
 /* ============ Nice micro-interactions ============ */
 .card:hover{ transform: translateY(-3px); }
+
 

@@ -29,22 +29,10 @@ html { scroll-behavior: smooth; }
   max-width: 1200px; margin: 0 auto; padding: .8rem 1rem;
   display:flex; align-items:center; justify-content:space-between; gap:1rem;
 }
-.brand{ font-weight: 800; letter-spacing: .08em; color: var(--caramel); text-decoration: none; }
 .nav-links{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; }
 .nav-links a{ color:#ffe0b2; text-decoration:none; font-weight:600; }
 .nav-links a:hover{ color:var(--caramel); }
-.nav-toggle{ display:none; font-size:1.5rem; background:none; border:0; color:#ffe0b2; cursor:pointer; }
 
-@media (max-width: 860px){
-  .nav-toggle{ display:block; }
-  .nav-links{
-    position:absolute; top:100%; right:0; left:0;
-    background: var(--coffee-900);
-    flex-direction:column; padding: .8rem 1rem; display:none;
-    border-top:1px solid rgba(255,255,255,.08);
-  }
-  .nav-links.open{ display:flex; }
-}
 /* HERO SECTION PADDING */
 @media (max-width: 860px) {
   #hero { padding-top: 0; } /* remove extra space */
@@ -53,7 +41,6 @@ html { scroll-behavior: smooth; }
 /* HERO SECTION SCROLL */
 #hero, .section { scroll-margin-top: 72px; }
 .hero { padding-top: 72px; }
-
 
 /* Avoid content under fixed nav */
 #hero, .section { scroll-margin-top: 72px; }
@@ -212,6 +199,7 @@ footer a:hover{ color:#ffcc80; }
 
 /* ============ Nice micro-interactions ============ */
 .card:hover{ transform: translateY(-3px); }
+
 /* Main navigation */
 nav {
   display: flex;
@@ -234,9 +222,3 @@ nav ul li a {
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
-
-
-
-
-
-

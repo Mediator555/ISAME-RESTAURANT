@@ -212,5 +212,46 @@ footer a:hover{ color:#ffcc80; }
 
 /* ============ Nice micro-interactions ============ */
 .card:hover{ transform: translateY(-3px); }
+/* Main navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* allow menu items to wrap */
+}
+
+/* Menu items NAV BAR FIX*/
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* wrap items if needed */
+}
+
+/* Menu links */
+nav ul li a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+/* Mobile: hide the menu and show hamburger */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* hide menu by default */
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav.active ul {
+    display: flex; /* show menu when hamburger clicked */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger icon */
+    cursor: pointer;
+  }
+}
+
 
 

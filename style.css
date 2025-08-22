@@ -235,23 +235,8 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* Mobile: hide the menu and show hamburger */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide menu by default */
-    flex-direction: column;
-    width: 100%;
-  }
 
-  nav.active ul {
-    display: flex; /* show menu when hamburger clicked */
-  }
 
-  .hamburger {
-    display: block; /* show hamburger icon */
-    cursor: pointer;
-  }
-}
 
 
 
